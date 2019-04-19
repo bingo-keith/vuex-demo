@@ -1,9 +1,9 @@
 const state = {
-  collects: [], // 初始化一个collects数组
+  collects: [1,2,3], // 初始化一个collects数组
 }
 
 const getters = {
-  renderCollects(state) { // 成再变化的collects
+  renderCollects(state) { // 承载变化的collects
     return state.collects;
   }
 }
@@ -15,7 +15,7 @@ const mutations = {
 }
 
 const actions = {
-  invokePushItems(context, item) { // 触发mutations里面的pushCollects，传入数据形参item对应到items
+  invokePushItems(context, item) { // 触发mu
     context.commit('pushCollects', item);
   }
 }

@@ -2,6 +2,17 @@
   <div id="app">
     <router-view/>
     <FooterBar v-if="isShow"/>
+    <section>
+      <div>
+        <h3>全国通讯录</h3>
+        <span @click="invokePushItems('test')">加入收藏列</span>
+      </div>
+    </section>
+    <ul>
+      <li v-for="(val, index) in arrList" :key="index">
+        <h5>{{val}}</h5>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -28,9 +39,16 @@
       // ...mapGetters('footerStatus', {
       //   isShow: 'isShow',
       // }),
+
+      // 获取collections.js里的getters
+      ...mapGetters('collection', { arrList: 'renderCollects' })
     },
     mounted() {
       console.log(this.$store.state.footerStatus)
+    },
+    methods: {
+      // collection是指modules文件夹下的collection.js， invokePushItems为该文件下actions里的方法
+      ...mapActions('collection', [ 'invokePushItems' ])
     }
   }
 </script>
