@@ -92,6 +92,8 @@ export default {
     }
   },
   mounted() {
+    this.$store.commit('newNum', 5)
+    this.$store.dispatch('getNewNum', 10)
     console.log(this.$store.state)
   }
 }

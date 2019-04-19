@@ -30,10 +30,23 @@ const mutations = {
   }
 }
 
+const actions = { // 自定义触发mutations里的函数方法，context与store实例居右 相同方法和属性
+  hideFooter(context) {
+    context.commit('hide');
+  },
+  showFooter(context) {
+    context.commit('show');
+  },
+  getNewNum(context, num) {
+    context.commit('newNum', num);
+  }
+}
+
 const store = new Vuex.Store({
   state,
   getters,
   mutations,
+  actions,
 })
 
 export default store
